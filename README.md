@@ -6,6 +6,11 @@ http://www.buwangbo.com/
 buwangbo  
 步望博 - 个人博客
 
+#### 说明
+buwangbo-frontEnd 博客前端  
+buwangbo-admin 后台管理  
+buwangbo-api 后端  
+
 #### BUGLIST
 
 #### 待做的
@@ -21,10 +26,9 @@ buwangbo
 
 ### 已完成已修复
 1.github博客平台搭建
+2.这里只放一个首页，博客页放其他项目
 
 
-#### 安装教程
-
-
-#### 使用说明
+#### 致谢
+@xiazeyu
 
