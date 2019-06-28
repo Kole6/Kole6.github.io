@@ -1,165 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1" />
-		<meta content="yes" name="apple-mobile-web-app-capable" />
-		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
-		<meta content="telephone=no" name="format-detection" />
-		<link rel="icon" href="favicon.ico">
-		<title>步望博 - 个人博客！</title>
-		<meta name="keywords" content="步望博,buwangbo,橙小光,全栈,博客" />
-		<meta name="description" content="分享前端、JavaScript、SpringBoot和web的各个细节上的点点滴滴，愿与你共同分享，一起进步！" />
-		<style type="text/css">
-			.container {
-				position: fixed;
-				top: 0;
-				left: 0;
-				z-index: 99;
-				width: 100%;
-				height: 100%;
-				overflow: hidden;
-				display: table;
-				font-family: "Raleway", "Segoe UI", "Lucida Grande", "Helvetica", "Arial", "Microsoft YaHei";
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1" />
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link rel="icon" href="favicon.ico">
+	<title>步望博 - 个人博客！</title>
+	<meta name="keywords" content="步望博,buwangbo,橙小光,全栈,博客" />
+	<meta name="description" content="分享前端、JavaScript、SpringBoot和web的各个细节上的点点滴滴，愿与你共同分享，一起进步！" />
+	<style type="text/css">
+		.container {
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 99;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			display: table;
+			font-family: "Raleway", "Segoe UI", "Lucida Grande", "Helvetica", "Arial", "Microsoft YaHei";
+		}
+
+		.container .img {
+			position: absolute;
+			z-index: 1;
+			width: 100%;
+			height: 100%;
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-image: url(https://kole6.github.io/img/buwangbo.jpg);
+			background-size: cover;
+			animation: imgScale 2s ease-in-out;
+		}
+
+		.container .content {
+			position: relative;
+			width: 100%;
+			padding: 0 3%;
+			z-index: 2;
+			text-align: center;
+			color: #fff;
+			animation: textOpacity 2.4s ease-in-out;
+			display: table-cell;
+			vertical-align: middle;
+		}
+
+		.container .content .title {
+			font-size: 28px;
+		}
+
+		.container .content .description {
+			font-size: 20px;
+			padding-top: 20px;
+		}
+
+		.container .content .time {
+			padding-top: 20px;
+			font-size: 16px;
+		}
+
+		.container .content .btn {
+			padding-top: 40px;
+		}
+
+		.container .content .btn a {
+			display: inline-block;
+			width: 80px;
+			font-size: 12px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			border-radius: 3px;
+			border: 1px solid #fff;
+			text-decoration: none;
+			color: #fff;
+			transition: all .3s;
+		}
+
+		.container .content .btn a:hover {
+			background: #fff;
+			color: #35abbc
+		}
+
+		@keyframes imgScale {
+			0% {
+				transform: scale(1.2);
 			}
 
-			.container .img {
-				position: absolute;
-				z-index: 1;
-				width: 100%;
-				height: 100%;
-				background-position: center center;
-				background-repeat: no-repeat;
-				background-image: url(https://kole6.github.io/img/buwangbo.jpg);
-				background-size: cover;
-				animation: imgScale 2s ease-in-out;
+			100% {
+				transform: scale(1);
+			}
+		}
+
+		@keyframes textOpacity {
+			0% {
+				opacity: 0
 			}
 
-			.container .content {
-				position: relative;
-				width: 100%;
-				padding: 0 3%;
-				z-index: 2;
-				text-align: center;
-				color: #fff;
-				animation: textOpacity 2.4s ease-in-out;
-				display: table-cell;
-				vertical-align: middle;
+			50% {
+				opacity: 0
 			}
 
+			100% {
+				opacity: 1
+			}
+		}
+
+		@media screen and (max-width: 768px) {
 			.container .content .title {
-				font-size: 28px;
+				font-size: 20px;
 			}
 
 			.container .content .description {
-				font-size: 20px;
-				padding-top: 20px;
-			}
-
-			.container .content .time {
-				padding-top: 20px;
 				font-size: 16px;
 			}
 
-			.container .content .btn {
-				padding-top: 40px;
+			.container .content .time {
+				font-size: 14px;
 			}
-
-			.container .content .btn a {
-				display: inline-block;
-				width: 80px;
-				font-size: 12px;
-				height: 30px;
-				line-height: 30px;
-				text-align: center;
-				border-radius: 3px;
-				border: 1px solid #fff;
-				text-decoration: none;
-				color: #fff;
-				transition: all .3s;
+		}
+	</style>
+	<script src="./live2d/L2Dwidget.min.js"></script>
+	<script type="text/javascript">
+		L2Dwidget.init({
+			model: {
+				jsonPath: './live2d-widget-model-z16/assets/z16.model.json'
+			},
+			display: {
+				superSample: 2,
+				width: 120,
+				height: 200,
+				position: 'right',
+				hOffset: 0,
+				vOffset: 0,
+			},
+			mobile: {
+				show: true,
+				scale: 1,
+				motion: true,
+			},
+			react: {
+				opacityDefault: 1,
+				opacityOnHover: 0.2,
 			}
+		})
+	</script>
+</head>
 
-			.container .content .btn a:hover {
-				background: #fff;
-				color: #35abbc
-			}
-
-			@keyframes imgScale {
-				0% {
-					transform: scale(1.2);
-				}
-
-				100% {
-					transform: scale(1);
-				}
-			}
-
-			@keyframes textOpacity {
-				0% {
-					opacity: 0
-				}
-
-				50% {
-					opacity: 0
-				}
-
-				100% {
-					opacity: 1
-				}
-			}
-
-			@media screen and (max-width: 768px) {
-				.container .content .title {
-					font-size: 20px;
-				}
-
-				.container .content .description {
-					font-size: 16px;
-				}
-
-				.container .content .time {
-					font-size: 14px;
-				}
-			}
-		</style>
-		<script src="./live2d/L2Dwidget.min.js"></script>
-		<script type="text/javascript">
-			L2Dwidget.init({
-				model: {
-					jsonPath: './live2d-widget-model-z16/assets/z16.model.json'
-				},
-				display: {
-					superSample: 2,
-					width: 120,
-					height: 200,
-					position: 'right',
-					hOffset: 0,
-					vOffset: 0,
-				},
-				mobile: {
-					show: true,
-					scale: 1,
-					motion: true,
-				},
-				react: {
-					opacityDefault: 1,
-					opacityOnHover: 0.2,
-				}
-			})
-		</script>
-	</head>
-	<body>
-		<div class="container">
-			<div class="img"></div>
-			<div class="content">
-				<div class="title">源于热爱，探索不止！</div>
-				<div class="description">给自己一些时间。努力的做自己喜欢的事，就算不能成功，每天也是开心的。</div>
-				<div class="time">—— 2018.03.03 ——</div>
-				<div class="btn">
-					<a href="http://wpa.qq.com/msgrd?v=3&uin=1577653650&site=qq&menu=yes" target='_blank'>联系QQ</a>
-					<a href="/bu/html/index.html">进入博客</a>
-				</div>
+<body>
+	<div class="container">
+		<div class="img"></div>
+		<div class="content">
+			<div class="title">源于热爱，探索不止！</div>
+			<div class="description">给自己一些时间。努力的做自己喜欢的事，就算不能成功，每天也是开心的。</div>
+			<div class="time">—— 2018.03.03 ——</div>
+			<div class="btn">
+				<a href="http://wpa.qq.com/msgrd?v=3&uin=1577653650&site=qq&menu=yes" target='_blank'>联系QQ</a>
+				<a href="/bu/html/index.html">进入博客</a>
 			</div>
 		</div>
-	</body>
+	</div>
+</body>
+
 </html>
