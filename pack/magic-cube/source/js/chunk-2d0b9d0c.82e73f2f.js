@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0b9d0c"],{"350d":function(n,t,e){"use strict";e.r(t);var c=function(){var n=this,t=n.$createElement,e=n._self._c||t;return e("div",[n._v("\n  学校年度质量报告\n")])},u=[],a={data:function(){return{}},methods:{}},r=a,d=e("2877"),o=Object(d["a"])(r,c,u,!1,null,"49af7687",null);t["default"]=o.exports}}]);

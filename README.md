@@ -17,6 +17,7 @@ buwangbo
 buwangbo-frontEnd 博客前端  
 buwangbo-admin 后台管理  
 buwangbo-api 后端  
+pack 下面存放打包后的文件
 
 #### BUGLIST
 1.公开的首页很容易被别人爬走
