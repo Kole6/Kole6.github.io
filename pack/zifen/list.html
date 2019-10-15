@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>第四届紫金知识产权国际峰会报名名单</title>
+		<style type="text/css">
+			table {
+				border-collapse: collapse;
+				text-align: center;
+			}
+
+			table td,
+			table th {
+				border: 1px solid #cad9ea;
+				color: #666;
+				height: 30px;
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+
+			table thead th {
+				background-color: #CCE8EB;
+			}
+
+			table tr:nth-child(odd) {
+				background: #fff;
+			}
+
+			table tr:nth-child(even) {
+				background: #F5FAFA;
+			}
+		</style>
+		<script type="text/javascript" src="http://www.hqzj-ip.com/resource/js/jquery-1.10.2.min.js"></script>
+	</head>
+	<body>
+		第四届紫金知识产权国际峰会报名名单:
+		<table border="1" id="tableList">
+			<!-- <tr><th>姓名</th><th>电话</th><th>邮箱</th><th>公司</th><th>职位</th><th>是否参加主论坛</th></tr> -->
+			
+		</table>
+		<script type="text/javascript">
+			$.ajax({
+				url: "http://180.76.106.232:7001/meet/findAll",
+				type: "GET",
+				success: function(data) {
+					var tab = '<tr><th>姓名</th><th>电话</th><th>邮箱</th><th>公司</th><th>职位</th><th>是否参加主论坛</th></tr>';
+					for(var i=0; i<data.length; i++){
+						var d = '<tr><td>'+data[i].name+
+						'</td><td>'+data[i].tel+
+						'</td><td>'+data[i].mail+
+						'</td><td>'+data[i].company+
+						'</td><td>'+data[i].post+
+						'</td><td>'+(data[i].main=='1'?'是':'否')+'</td></tr>';
+						tab += d;
+					}
+					$("#tableList").html(tab);
+				},
+				error: function(e) {
+					console.log(e);
+					alert('网络失败，请刷新页面后重试');
+				}
+			});
+		</script>
+	</body>
+</html>
