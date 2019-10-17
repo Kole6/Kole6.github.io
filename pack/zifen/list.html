@@ -33,25 +33,22 @@
 		<script type="text/javascript" src="http://www.hqzj-ip.com/resource/js/jquery-1.10.2.min.js"></script>
 	</head>
 	<body>
-		第四届紫金知识产权国际峰会报名名单:
-		<table border="1" id="tableList">
-			<!-- <tr><th>姓名</th><th>电话</th><th>邮箱</th><th>公司</th><th>职位</th><th>是否参加主论坛</th></tr> -->
-			
-		</table>
+		<p>第四届紫金知识产权国际峰会报名名单:</p>
+		<table border="1" id="tableList"></table>
+		<script src="resource/config.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$.ajax({
-				url: "http://180.76.106.232:7001/meet/findAll",
+				url: ADMIN_URL + "/meet/findAll",
 				type: "GET",
 				success: function(data) {
 					var tab = '<tr><th>姓名</th><th>电话</th><th>邮箱</th><th>公司</th><th>职位</th><th>是否参加主论坛</th></tr>';
-					for(var i=0; i<data.length; i++){
-						var d = '<tr><td>'+data[i].name+
-						'</td><td>'+data[i].tel+
-						'</td><td>'+data[i].mail+
-						'</td><td>'+data[i].company+
-						'</td><td>'+data[i].post+
-						'</td><td>'+(data[i].main=='1'?'是':'否')+'</td></tr>';
-						tab += d;
+					for (var i = 0; i < data.length; i++) {
+						tab += '<tr><td>' + data[i].name +
+							'</td><td>' + data[i].tel +
+							'</td><td>' + data[i].mail +
+							'</td><td>' + data[i].company +
+							'</td><td>' + data[i].post +
+							'</td><td>' + (data[i].main == '1' ? '是' : '否') + '</td></tr>';;
 					}
 					$("#tableList").html(tab);
 				},

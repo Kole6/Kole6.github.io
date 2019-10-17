@@ -161,6 +161,7 @@
 			</form>
 		</div>
 		<div style="height: 120px;"></div>
+		<script src="resource/config.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			function applySubmit() {
 				var applyName = document.getElementsByName("applyName")[0].value;
@@ -206,7 +207,7 @@
 					main: content,
 				};
 				$.ajax({
-					url: "http://180.76.106.232:7001/meet/insert",
+					url: ADMIN_URL+"/meet/insert",
 					type: "GET",
 					data: vdata,
 					success: function(data) {
